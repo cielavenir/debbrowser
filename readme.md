@@ -2,7 +2,7 @@
 
 Debian repository browser (application), which works even for hidden repositories.
 
-!(example using nodejs)[example_nodejs.png]
+![example using nodejs](example_nodejs.png)
 
 (Note that https://deb.nodesource.com/node_22.x/dists/nodistro/main/binary-amd64 is not indexable.)
 
