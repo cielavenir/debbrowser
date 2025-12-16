@@ -43,7 +43,7 @@ def main():
         print("""
 <html><body>
 <form onsubmit="event.preventDefault();location.href='%s'+'/'+document.getElementById('url').value">
-<label for="url">Set URL (for hierarchical reposotories, BASE/dists/DIST):</label><br>
+<label for="url">Set URL (for hierarchical repositories, BASE/dists/DIST):</label><br>
 <input type="text" name="url" id="url" size=100/>
 <button type+"submit">Set</button>
 </form></body></html>
