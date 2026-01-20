@@ -63,18 +63,22 @@ def main():
 
     if table is None:
         sourcesData = None
-        resp = requests.get(url+"/Packages.xz")
-        if resp.status_code // 100 == 2:
-            sourcesData = PackagesParser(lzma.decompress(resp.content).decode("utf-8")).parse()
-        resp = requests.get(url+"/Packages.bz2")
-        if resp.status_code // 100 == 2:
-            sourcesData = PackagesParser(bz2.decompress(resp.content).decode("utf-8")).parse()
-        resp = requests.get(url+"/Packages.gz")
-        if resp.status_code // 100 == 2:
-            sourcesData = PackagesParser(gzip.decompress(resp.content).decode("utf-8")).parse()
-        resp = requests.get(url+"/Packages")
-        if resp.status_code // 100 == 2:
-            sourcesData = PackagesParser(resp.text).parse()
+        if sourcesData is None:
+            resp = requests.get(url+"/Packages.xz")
+            if resp.status_code // 100 == 2:
+                sourcesData = PackagesParser(lzma.decompress(resp.content).decode("utf-8")).parse()
+        if sourcesData is None:
+            resp = requests.get(url+"/Packages.bz2")
+            if resp.status_code // 100 == 2:
+                sourcesData = PackagesParser(bz2.decompress(resp.content).decode("utf-8")).parse()
+        if sourcesData is None:
+            resp = requests.get(url+"/Packages.gz")
+            if resp.status_code // 100 == 2:
+                sourcesData = PackagesParser(gzip.decompress(resp.content).decode("utf-8")).parse()
+        if sourcesData is None:
+            resp = requests.get(url+"/Packages")
+            if resp.status_code // 100 == 2:
+                sourcesData = PackagesParser(resp.text).parse()
         if sourcesData is not None:
             packageList2 = []
             for datum in sourcesData:
@@ -88,18 +92,22 @@ def main():
 
     if table is None:
         sourcesData = None
-        resp = requests.get(url+"/Sources.xz")
-        if resp.status_code // 100 == 2:
-            sourcesData = PackagesParser(lzma.decompress(resp.content).decode("utf-8")).parse()
-        resp = requests.get(url+"/Sources.bz2")
-        if resp.status_code // 100 == 2:
-            sourcesData = PackagesParser(bz2.decompress(resp.content).decode("utf-8")).parse()
-        resp = requests.get(url+"/Sources.gz")
-        if resp.status_code // 100 == 2:
-            sourcesData = PackagesParser(gzip.decompress(resp.content).decode("utf-8")).parse()
-        resp = requests.get(url+"/Sources")
-        if resp.status_code // 100 == 2:
-            sourcesData = PackagesParser(resp.text).parse()
+        if sourcesData is None:
+            resp = requests.get(url+"/Sources.xz")
+            if resp.status_code // 100 == 2:
+                sourcesData = PackagesParser(lzma.decompress(resp.content).decode("utf-8")).parse()
+        if sourcesData is None:
+            resp = requests.get(url+"/Sources.bz2")
+            if resp.status_code // 100 == 2:
+                sourcesData = PackagesParser(bz2.decompress(resp.content).decode("utf-8")).parse()
+        if sourcesData is None:
+            resp = requests.get(url+"/Sources.gz")
+            if resp.status_code // 100 == 2:
+                sourcesData = PackagesParser(gzip.decompress(resp.content).decode("utf-8")).parse()
+        if sourcesData is None:
+            resp = requests.get(url+"/Sources")
+            if resp.status_code // 100 == 2:
+                sourcesData = PackagesParser(resp.text).parse()
         if sourcesData is not None:
             packageList2 = []
             for datum in sourcesData:
