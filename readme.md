@@ -12,6 +12,10 @@ Just put this repository to a webserver.
 
 For even more conveniense, you can cd to this directory and run `./lighttpd.conf`.
 
+## Demo?
+
+Sorry I cannot setup a demo server as Packages.gz access log from that demo server will be recorded to the apt repository.
+
 ## Why you chose deprecated CGI?
 
 CGI is still universal way.
