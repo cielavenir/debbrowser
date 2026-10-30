@@ -69,7 +69,7 @@ class PackagesParser(object):
 
     def _parse_string(self, string):
 
-        if string == "":
+        if string.strip() == "":
             return False
 
         selected_string_split = string.split()
